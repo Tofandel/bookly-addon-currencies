@@ -10,9 +10,10 @@ use Bookly\Lib\Utils\Price;
 ?>
 <div class="tab-pane" id="bookly_settings_currencies">
     <form method="post" action="<?php echo esc_url( add_query_arg( 'tab', 'currencies' ) ) ?>">
-        <p class="help-block"><?php _e( 'Leave the rate empty to retrieve it automatically once per day', 'bookly' ) ?></p>
 		<?php Selects::renderSingle( 'bookly_currencies_enabled', __( 'Currencies', 'bookly' ), __( 'If currencies add-on is enabled then your clients will be able to see different prices depending on their language', 'bookly' ) ) ?>
 		<?php Inputs::renderText( 'bookly_currencies_api_key', __( 'Fixer.io API Key', 'bookly' ), __( 'Go to <a href=https://fixer.io rel="noopener noreferer">fixer.io</a> and register to get an api key to fetch currency rates automatically' ) ) ?>
+        <p class="help-block"><?php _e( 'Once set you can leave the rate empty and it will automatically be retrieved from the API once per day', 'bookly' ) ?></p>
+
         <h3><?php _e( 'Languages', 'bookly' ) ?></h3>
 		<?php
 		$currencies = Price::getCurrencies();
