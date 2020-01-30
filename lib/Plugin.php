@@ -4,6 +4,7 @@ namespace BooklyCurrencies\Lib;
 
 use Bookly\Lib;
 use BooklyCurrencies\Backend\Modules\Settings\ProxyProviders\Shared as Settings;
+use BooklyCurrencies\Backend\Modules\Staff\Proxy\Shared;
 
 /**
  * Class Plugin
@@ -29,6 +30,7 @@ abstract class Plugin extends Lib\Base\Plugin {
 		//parent::registerHooks(); Plugin is not an official plugin so no purchase code and update
 
 		Settings::init();
+		Shared::init();
 
 		if ( get_option( 'bookly_currencies_enabled' ) ) {
 			if ( ! class_exists( Lib\Utils\Price::class, false ) ) {
