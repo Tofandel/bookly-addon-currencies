@@ -29,7 +29,9 @@ abstract class Plugin extends Lib\Base\Plugin {
 	public static function registerHooks() {
 		//parent::registerHooks(); Plugin is not an official plugin so no purchase code and update
 
-		Settings::init();
+		if ( is_admin() ) {
+			Settings::init();
+		}
 		Shared::init();
 
 		if ( get_option( 'bookly_currencies_enabled' ) ) {

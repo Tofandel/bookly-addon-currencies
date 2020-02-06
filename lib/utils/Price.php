@@ -150,6 +150,24 @@ abstract class Price {
 		return number_format_i18n( $price, 2 );
 	}
 
+	public static function defaultCurrency($content) {
+		$currency = get_option( 'bookly_pmt_currency' );
+		$format = get_option( 'bookly_pmt_price_format' );
+		$symbol = self::$currencies[$currency]['symbol'];
+
+		if ( preg_match( '/{price\|(\d)}/', $format, $match ) ) {
+			return strtr( $format, [
+				'{sign}' => '',
+				'{symbol}' => '<span class="currency">'.$symbol.'</span>',
+				"{price|{$match[1]}}" => $content,
+			] );
+		}
+	}
+
+	public static function getDefaultCurrencyInfo() {
+		return self::$currencies[get_option( 'bookly_pmt_currency' )];
+	}
+
 	public static function getCurrencyInfo() {
 		$lang = apply_filters( 'wpml_current_language', null );
 
