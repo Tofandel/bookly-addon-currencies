@@ -3,10 +3,10 @@
 Plugin Name: Bookly Currencies (Add-on)
 Plugin URI: http://booking-wp-plugin.com
 Description: Bookly Currencies add-on allows you to set multiple currencies depending on the language.
-Version: 1.0
+Version: 1.1
 Author: Tofandel
 Author URI: http://booking-wp-plugin.com
-Text Domain: bookly-cart
+Text Domain: bookly
 Domain Path: /languages
 License: GPLv3
 */
